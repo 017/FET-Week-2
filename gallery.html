@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gallery</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="./scripts.js"></script>
+    <script src="https://kit.fontawesome.com/e122de931b.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link rel="icon" href="./img/Splyce_Icon.png" type="image/png">
+  </head>
+
+  <body>
+    <ul class="nav" style:"height: auto">
+      <li class="logo"><img src="./img/Splyce_Icon.png"></li>
+      <li class="nav-gallery"><a href="./gallery.html" id="partyTime"><i class="fas fa-images"></i> Gallery</a></li>
+      <li class="nav-tutorials"><a href="./tutorials.html" id="partyTime"><i class="fas fa-info-circle"></i> Tutorials</a></li>
+      <li class="nav-about"><a href="./about.html" id="partyTime"><i class="fas fa-question-circle"></i> About</a></li>
+    </ul>
+    <div class="main">
+      <h1>Portfolio</h1>
+      <p>A gallery of my work.</p>
+      <div class="flex-grid">
+        <div class="col">
+          <img class="gallery-thumbnail" src="./img/gallery/airlock_door.PNG" alt="Airlock Door"/>
+          <img class="gallery-thumbnail" src="./img/gallery/airlock_window_redo.PNG" alt="Airlock Window"/>
+          <img class="gallery-thumbnail" src="./img/gallery/door.PNG" alt="Door"/>
+          <img class="gallery-thumbnail" src="./img/gallery/escape_pod_airlock_inner1.PNG" alt="Escape Pod Airlock - Interior"/>
+          <img class="gallery-thumbnail" src="./img/gallery/escape_pod_airlock_outer.PNG" alt="Escape Pod Airlock - Exterior"/>
+        </div>
+        <div class="col">
+          <img class="gallery-thumbnail" src="./img/gallery/escape_pod_bay_render.png" alt="Escape Pod Bay - Rendered"/>
+          <img class="gallery-thumbnail" src="./img/gallery/gun_locker_final.PNG" alt="UNSC In-Wall Gun Locker"/>
+          <img class="gallery-thumbnail" src="./img/gallery/new_door.PNG" alt="Door"/>
+          <img class="gallery-thumbnail" src="./img/gallery/new_wall.PNG" alt="It's a wall, what did you expect?"/>
+          <img class="gallery-thumbnail" src="./img/gallery/new_wall2.PNG" alt="It's another wall!"/>
+        </div>
+        <div class="col">
+          <img class="gallery-thumbnail" src="./img/gallery/pretty_render_escape_pod_bay.png" alt="Another Escape Pod Bay Render!"/>
+          <img class="gallery-thumbnail" src="./img/gallery/service_corridor.PNG" alt="Service Corridor Hatch"/>
+          <img class="gallery-thumbnail" src="./img/gallery/service_hatch.PNG" alt="Service Corridor Hatch #2"/>
+          <img class="gallery-thumbnail" src="./img/gallery/update.PNG" alt="UNSC Ship Interior WIP"/>
+          <img class="gallery-thumbnail" src="./img/gallery/wip.png" alt="UNSC Ship Interior WIP #2"/>
+        </div>
+        <div class="col">
+          <img class="gallery-thumbnail" src="./img/gallery/robert-ochi-mark23-35shot.jpg" alt="HK Mark 23 - 3/5ths Shot"/>
+          <img class="gallery-thumbnail" src="./img/gallery/robert-ochi-mark23-sideshot.jpg" alt="HK Mark 23 - Side Shot"/>
+          <img class="gallery-thumbnail" src="./img/gallery/robert-ochi-hangarshot-01.jpg" alt="Mech Hangar 01"/>
+          <img class="gallery-thumbnail" src="./img/gallery/robert-ochi-hangarshot-03.jpg" alt="Mech Hangar 02"/>
+          <img class="gallery-thumbnail" src="./img/gallery/robert-ochi-hangarshot-04.jpg" alt="Mech Hangar 03"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Image Display -->
+
+    <div class="modal">
+      <span class="close">x</span>
+      <img class="modal-image"/>
+    </div>
+
+    <div class="sidebar">
+      <div class="about">
+        <div class="info-card">
+          <img class="info-card-icon" src="./img/me_icon.png" alt="Avatar">
+          <div class="info-card-details">
+            <h2>Robert Ochi</h2>
+            <h5>Software Developer & 3D Generalist</h5>
+            <p>
+              I make cool stuff.
+            </p>
+          </div>
+          <ul class="media-links">
+            <li><a href="https://www.linkedin.com/in/robeochi/"><i class="fab fa-linkedin"></i></a><a class="links" href="https://www.linkedin.com/in/robeochi/"> LinkedIn</a></li><br>
+            <li><a href="https://github.com/017"><i class="fab fa-github"></i></a><a class="links" href="https://github.com/017"> GitHub</a></li><br>
+            <li><a href="https://steamcommunity.com/id/117_/myworkshopfiles/"><i class="fab fa-steam"></i></a><a class="links" href="https://steamcommunity.com/id/117_/myworkshopfiles/"> Steam Workshop</a></li><br>
+            <li><a href="https://youtube.com/user/C4F117"><i class="fab fa-youtube"></i></a><a class="links" href="https://youtube.com/user/C4F117"> YouTube</a></li><br>
+            <li><a href="https://www.artstation.com/017"><i class="fab fa-artstation"></i></a><a class="links" href="https://www.artstation.com/017"> ArtStation</a></li><br>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+  
+  <footer>
+    <tr>
+      <td><a href="./gallery.html"><i class="fas fa-images"></i> Gallery</a></td>
+      <td><a href="./tutorials.html"><i class="fas fa-info-circle"></i> Tutorials</a></td>
+      <td><a href="./about.html"><i class="fas fa-question-circle"></i> About</a></td>
+      <td><a onclick="partyTime()" class="partyTimeNormal"><i class="fas fa-bacon"></i> Party Time!</a></td>
+    </tr>
+  </footer>
+
+  <script>
+  let modal_element = document.querySelector(".modal");
+  let modal_image = document.querySelector(".modal-image");
+  Array.from(document.querySelectorAll(".gallery-thumbnail")).forEach(item => {
+    item.addEventListener("click", event => {
+        modal_element.style.display = "block";
+        modal_image.src = event.target.src;
+    });
+  });
+  document.querySelector(".close").addEventListener("click", () => {
+    modal_element.style.display = "none";
+  });
+  </script>
+</html>
